@@ -1,0 +1,19 @@
+void setup(){ 
+  size(800,800);
+}
+
+void draw(){ 
+  int a=4; 
+  int b=4; 
+  for(int x=1; x<=7; x=1+x){ 
+    for(int y=a; y<=b; y++){
+      ellipse(y*100,x*100,50,50);
+    }
+    if(x<4) {
+      a=a-1; b=b+1;
+    }
+    if(x>=4){
+      a=a+1; b=b-1;
+    }
+  }
+}
