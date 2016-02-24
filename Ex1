@@ -1,0 +1,60 @@
+
+int cuadradoX = 100;
+int cuadradoY = 100;
+int cuadradoAncho = 75;
+int cuadradoAlto = 75;
+
+int circuloX = 300;
+int circuloY = 300;
+int circuloAncho = 100;
+int circuloAlto = 100;
+
+int colorCirculo = 255;
+int colorCuadrado = 255;
+
+void setup(){
+  size(600,600);
+  println("comenzando");
+}
+
+void draw(){
+  fill(0,colorCuadrado,0);
+  rect(cuadradoX, cuadradoY, cuadradoAncho, cuadradoAlto);
+  fill(colorCirculo,0,0);
+  ellipse(circuloX, circuloY, circuloAncho, circuloAlto);
+}
+
+void mouseClicked() {
+  //verificar click circulo
+  int radio = circuloAncho/2;
+  float a = pow((mouseY-circuloY),2.0) ;
+  float b = pow((mouseX-circuloX),2.0) ;
+  float distancia = sqrt(a+b);
+  
+  /*Verificar click circulo*/
+  if (distancia <= radio){
+    if (colorCirculo == 255){
+      colorCirculo = 0;
+    }
+    else{
+      colorCirculo = 255;
+    }
+    
+  }
+  //////////////////////////////////////////////
+  
+  /*Verificar click cuadrado*/
+  if(mouseX>=cuadradoX && mouseX<=(cuadradoX+cuadradoAncho)){
+    if(mouseY>=cuadradoY && mouseY<=cuadradoY+cuadradoAlto){
+      if (colorCuadrado == 255){
+        colorCuadrado = 0;
+      }
+      else{
+        colorCuadrado = 255;
+      }
+      println("cambia colorCuadrado");
+    }
+  }
+  //////////////////////////////////////////////
+  
+}
